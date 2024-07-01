@@ -1,0 +1,99 @@
+<div class="main-card">
+  <div class="heading">
+    <h3 class="theme">Add Products</h3>
+  </div>
+  <div class="inputz mt-4">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+     <div class="row g-3">
+      <div class="col input">
+        <input type="text" class="form-control" autocomplete="off" id="formGroupExampleInput" placeholder="Item Code" formControlName="itemCode" [ngClass]="{'is-invalid': form.get('itemCode')?.invalid && submit}">
+      </div>
+       <div class="col input">
+         <input type="text" class="form-control" autocomplete="off" placeholder="Product Name" aria-label="First name" formControlName="productName" [ngClass]="{'is-invalid': form.get('productName')?.invalid && submit}">
+       </div>
+       <div class="mb-3 input">
+         <input type="text" class="form-control" autocomplete="off" placeholder="Required Batch Size" aria-label="Last name" formControlName="batchSize" [ngClass]="{'is-invalid': form.get('batchSize')?.invalid && submit}">
+       </div>
+     </div>
+
+     <div class="mb-3 input">
+       <input type="number" class="form-control" autocomplete="off" id="formGroupExampleInput" placeholder="Product Qty" formControlName="productQty" [ngClass]="{'is-invalid': form.get('productQty')?.invalid && submit}">
+     </div>
+     <div class="mb-3 input">
+       <input type="button" class="form-control" autocomplete="off" id="formGroupExampleInput" value="Select Item" (click)="openProductModal(content)" >
+     </div>
+     <div class="selected-items">
+      <h4>Selected Items</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Item Code</th>
+            <th>Item Name</th>
+            <th>Standard Qty</th>
+            <th>Required Qty</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of selectedItems; let i = index">
+            <td>{{ item.itemCode }}</td>
+            <td>{{ item.itemName }}</td>
+            <td>{{ item.standardQty }}</td>
+            <td>{{ item.RequiredQty }}</td>
+            <td>
+              <a (click)="editItem(i)" class="mx-2"><i class="fa fa-edit"></i></a>
+            <a (click)="deleteItem(i)"><i class="fa fa-trash-o"></i></a>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+     <div class="mb-3 btnz" style="text-align: end;">
+       <button type="submit" class="btn btn-primary">Add Product</button>
+     </div>
+    </form>
+ </div>
+
+</div>
+
+
+
+
+<!-- Bootstrap Modal -->
+<!-- Bootstrap Modal -->
+<ng-template #content let-modal>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title theme">Select Inventory Items</h4>
+    </div>
+    <div class="modal-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Item Code</th>
+            <th>Item Name</th>
+            <th>Standard Qty</th>
+            <th>Available Qty</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of availableItems; let i = index">
+            <td>{{ item.itemCode }}</td>
+            <td>{{ item.itemName }}</td>
+            <td>{{ item.standardQty }}</td>
+            <td>{{ item.RequiredQty }}</td>
+            <td>
+              <label>
+                <input type="checkbox" (change)="toggleSelected(item)"> Add
+              </label>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="btnz" style="text-align: end;">
+        <button class="btn btn-primary" (click)="addSelectedItems()">Add Selected Items</button>
+      </div>
+    </div>
+  </div>
+</ng-template>

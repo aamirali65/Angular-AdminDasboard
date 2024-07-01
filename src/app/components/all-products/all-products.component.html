@@ -1,0 +1,75 @@
+<div class="main-card">
+  <div class="heading">
+    <h3 class="theme">All Products</h3>
+  </div>
+  <!-- Search input can remain static -->
+  <div class="search mt-3">
+    <input type="search" name="" placeholder="Search Products">
+    <i class="fa fa-search"></i>
+  </div>
+  <div class="tables mt-4">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Products Name</th>
+          <th>Required Batch Size</th>
+          <th>Qty</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.batch_size }}</td>
+          <td>{{ product.qty }}</td>
+          <td>{{ product.date }}</td>
+          <td>
+            <a href=""><i class="fa fa-edit"></i></a>
+            <a href=""><i class="fa fa-trash-o mx-2"></i></a>
+            <a (click)="openProductModal(content)"><i class="fa fa-eye"></i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Bootstrap Modal -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title theme">Product Detail</h4>
+  </div>
+  <div class="modal-body">
+    <table class="table modal-table">
+      <tr>
+        <th>Product Name</th>
+        <td>Product 1</td>
+      </tr>
+      <tr>
+        <th>Batch Size</th>
+        <td>80 KG</td>
+      </tr>
+      <tr>
+        <th>Qty</th>
+        <td>22</td>
+      </tr>
+      <tr>
+        <th>Items</th>
+        <td><ul>
+          <li>Item 1</li>
+          <li>Item 2</li>
+        </ul></td>
+      </tr>
+      <tr>
+        <th>Date</th>
+        <td>1-20-2023</td>
+      </tr>
+    </table>
+
+  </div>
+</ng-template>
+
+

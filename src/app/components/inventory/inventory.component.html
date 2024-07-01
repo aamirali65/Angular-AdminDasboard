@@ -1,0 +1,76 @@
+<div class="main-card">
+  <div class="heading btnz">
+    <h3 class="theme">Inventory</h3>
+      <button type="submit" class="btn btn-primary" (click)="openProductModal(content)">Add Item</button>
+
+  </div>
+  <div class="inventory mt-4">
+    <div class="search mt-3">
+      <input type="search" name="" autocomplete="off" placeholder="Search Inventory">
+      <i class="fa fa-search"></i>
+    </div>
+    <div class="tables mt-4">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Item Code</th>
+            <th>Item Name</th>
+            <th>Available Qty</th>
+            <th>Standard Qty</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.batch_size }}</td>
+            <td>{{ product.qty }}</td>
+            <td>
+              <a (click)="editItem()"><i class="fa fa-edit"></i></a>
+              <a (click)="deleteItem()"><i class="fa fa-trash-o mx-2"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Bootstrap Modal -->
+<!-- Bootstrap Modal -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title theme">Add Inventory Item</h4>
+  </div>
+  <div class="modal-body">
+    <div class="inputz mt-4">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="row g-3">
+          <div class="input">
+            <input type="text" class="form-control" autocomplete="off" placeholder="Item Code" formControlName="itemCode"
+            [ngClass]="{'is-invalid': form.get('itemCode')?.invalid && submit}">
+          </div>
+          <div class="mb-3 input">
+            <input type="text" class="form-control" autocomplete="off" placeholder="Item Name" formControlName="itemName"
+            [ngClass]="{'is-invalid': form.get('itemName')?.invalid && submit}">
+
+          </div>
+        </div>
+        <div class="mb-3 input">
+          <input type="number" class="form-control" autocomplete="off" placeholder="Available Qty" formControlName="available_qty"
+          [ngClass]="{'is-invalid': form.get('available_qty')?.invalid && submit}">
+        </div>
+        <div class="mb-3 input">
+          <input type="number" class="form-control" autocomplete="off" placeholder="Standard Qty" formControlName="standard_qty"
+          [ngClass]="{'is-invalid': form.get('standard_qty')?.invalid && submit}">
+        </div>
+        <div class="mb-3 btnz" style="justify-content: end;">
+          <button type="submit" class="btn btn-primary">Add Item</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-template>

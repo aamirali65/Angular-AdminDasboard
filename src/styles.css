@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+:root{
+  --main:#3257AF;
+  }
+  *{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+  }
+  .theme{
+    color:var(--main);
+  }
+  ul{
+    padding: 0 !important;
+  }
+
+
+  span {
+    font-weight: 600;
+  }
+  .main-card{
+    background-color: #ECECEC;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 1rem;
+    height: 80vh;
+  }
+  .modal-header{
+  justify-content: center !important;
+  }
+  .btnz button{
+    background-color: var(--main);
+    border-radius: 0 !important;
+  }
+  .modal-dialog{
+    max-width: 650px !important;
+  }
+  i{
+    cursor: pointer;
+  }
+  .form-control:focus {
+    box-shadow: none !important;
+  }
+.is-invalid{
+  border: 1px solid red !important;
+}

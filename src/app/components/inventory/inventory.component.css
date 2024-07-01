@@ -1,0 +1,56 @@
+.search input{
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding-left: 10px;
+  width: 100%;
+}
+.search{
+  display: flex;
+  background-color: #dbdbdb;
+  padding: 15px;
+  align-items: center;
+}
+.search i{
+  font-size: 20px;
+  color: var(--main);
+  cursor: pointer;
+}
+table th,td{
+  background-color: transparent !important;
+}
+.tables{
+  height: 400px;
+  overflow: auto;
+}
+
+.tables::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+.tables::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+.tables::-webkit-scrollbar-thumb
+{
+	background-color: var(--main);
+}
+.btnz{
+  display: flex;
+  justify-content: space-between;
+}
+.input input{
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding-left: 10px;
+  width: 100%;
+  padding: 15px;
+  background-color: #dbdbdb;
+  border-radius: 0 !important;
+}

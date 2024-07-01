@@ -1,0 +1,51 @@
+
+
+
+.logo h1 {
+  font-weight: 700;
+}
+
+.side {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+ul li {
+  list-style: none;
+  border-radius: 10px;
+  margin-top: 0.8rem;
+  background-color: #ECECEC;
+}
+
+ul li a {
+  padding: 15px;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+ul .active {
+  background-color: var(--main);
+  color: white;
+}
+
+ul .active i {
+  color: var(--main) !important;
+  background-color: #fff !important;
+}
+
+ul li a i {
+  background-color: var(--main);
+  color: #fff;
+  border-radius: 50%;
+  padding: 8px;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.end {
+  margin-top: 11rem !important;
+}
